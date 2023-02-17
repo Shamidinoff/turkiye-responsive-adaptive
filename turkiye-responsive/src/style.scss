@@ -1,0 +1,1513 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+$main-text-black: #000000;
+$main-text-white: #ffffff;
+$back-color-red: #f84646;
+$kalite-text-color: #2e2e2e;
+$kalite-text-p: #808080;
+$referanslarimiz-text: #18191f;
+$referanslarimiz-back-color: #f4f5f7;
+$footer-back-color: #f8464a;
+$footer-p-color: #e6e6e6;
+$input-text-color: rgba(0, 0, 0, 0.4);
+
+@mixin flex($display, $direction, $justcont, $alignitem) {
+  display: $display;
+  flex-direction: $direction;
+  justify-content: $justcont;
+  align-items: $alignitem;
+}
+
+@mixin text($fontsize, $fontweight, $lineheight, $color) {
+  font-size: $fontsize;
+  font-weight: $fontweight;
+  line-height: $lineheight;
+  color: $color;
+}
+
+@mixin breakpoint($display, $flexwrap, $justcont, $alignitem) {
+  display: $display;
+  flex-wrap: $flexwrap;
+  justify-content: $justcont;
+  align-items: $alignitem;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+header {
+  width: 100%;
+}
+
+.container {
+  max-width: 1196px;
+  margin: auto;
+}
+
+.header-flex {
+  padding: 45px 0;
+  position: absolute;
+  margin-left: 30%;
+  max-width: 100%;
+
+  .header-flex-item {
+    @include flex(flex, row, flex-end, center);
+    max-width: 100%;
+
+    .burger-menu {
+      display: none;
+    }
+    nav {
+      @include flex(flex, row, flex-end, center);
+      list-style: none;
+      text-decoration: none;
+
+      ul {
+        @include flex(flex, row, flex-end, center);
+        li {
+          list-style: none;
+          margin-right: 40px;
+
+          a {
+            text-decoration: none;
+            @include text(14px, 700, 20px, $main-text-black);
+          }
+        }
+      }
+    }
+
+    button {
+      background-color: $back-color-red;
+      @include text(14px, 700, 20px, $main-text-white);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+.section1-bg-image {
+  background-image: url(/images/01-bg-image.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  background-position: left;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  padding: 210px 0 141px 0;
+
+  .section1-descr {
+    @include flex(flex, row, flex-start, center);
+
+    .section1-descr-container {
+      max-width: 665px;
+      @include flex(flex, column, flex-start, center);
+
+      h1 {
+        @include text(64px, 800, 82px, $main-text-black);
+        margin-bottom: 20px;
+      }
+
+      p {
+        @include text(20px, 400, 36px, $main-text-black);
+        letter-spacing: 0.2px;
+        margin-bottom: 50px;
+      }
+
+      form {
+        margin-right: 21%;
+        div {
+          background-color: $main-text-white;
+          padding: 5px 5px 5px 30px;
+          border-radius: 5px;
+
+          input {
+            @include text(16px, 400, 36px, $input-text-color);
+            border: none;
+            margin-right: 150px;
+            outline: none;
+          }
+          button {
+            padding: 10px 38px;
+            border-radius: 8px;
+            border: none;
+            background-color: $back-color-red;
+            @include text(16px, 700, 36px, $main-text-white);
+            letter-spacing: 0.2px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.section2-kalite {
+  padding: 120px 0 140px;
+
+  .section2-descr {
+    @include flex(flex, column, center, center);
+
+    h2 {
+      @include text(36px, 800, 49px, $main-text-black);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    p {
+      max-width: 994px;
+      @include text(24px, 400, 40px, $main-text-black);
+      text-align: center;
+      margin-bottom: 90px;
+    }
+
+    .section2-flex {
+      @include flex(flex, none, space-between, center);
+      flex-wrap: wrap;
+      margin: auto;
+
+      .section2-flex-item {
+        @include flex(flex, column, center, center);
+        margin: 0 5px 80px;
+
+        img {
+          margin-bottom: 10px;
+        }
+
+        h3 {
+          @include text(24px, 800, 33px, $main-text-black);
+          margin-bottom: 10px;
+          text-align: center;
+        }
+
+        p {
+          @include text(18px, 400, 28px, $main-text-black);
+          max-width: 298px;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+.section3-red {
+  padding: 68px 0 78px;
+  background-color: $back-color-red;
+
+  .section3-descr {
+    h2 {
+      @include text(48px, 800, 64px, $main-text-white);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    p {
+      @include text(18px, 400, 32px, $main-text-white);
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section3-flex {
+      @include flex(flex, none, space-between, center);
+      flex-wrap: wrap;
+
+      .section3-flex-item {
+        max-width: 199px;
+        @include flex(flex, column, center, center);
+
+        p {
+          @include text(18px, 700, 31px, $main-text-white);
+          margin-bottom: 0;
+        }
+
+        img {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.section4-kalite2 {
+  padding: 160px 0 120px;
+
+  .section4-flex {
+    @include flex(flex, row, space-between, center);
+
+    .section4-flex-item {
+      h2 {
+        @include text(64px, 700, 76px, $kalite-text-color);
+        max-width: 523px;
+        margin-bottom: 40px;
+      }
+
+      p {
+        @include text(16px, 400, 32px, $kalite-text-p);
+        max-width: 523px;
+        margin-bottom: 80px;
+      }
+
+      button {
+        @include text(14px, 600, 24px, $main-text-white);
+        background-color: $back-color-red;
+        padding: 12px 58px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.section5-test {
+  padding: 0 0 120px;
+
+  .section5-flex {
+    @include flex(flex, row, space-between, center);
+
+    .section5-flex-item {
+      h2 {
+        @include text(64px, 700, 76px, $kalite-text-color);
+        max-width: 523px;
+        margin-bottom: 40px;
+      }
+
+      p {
+        @include text(16px, 400, 32px, $kalite-text-p);
+        max-width: 523px;
+        margin-bottom: 80px;
+      }
+
+      button {
+        @include text(14px, 600, 24px, $main-text-white);
+        background-color: $back-color-red;
+        padding: 12px 58px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.section6-referenslarimiz {
+  padding: 59px 0;
+  background-color: $referanslarimiz-back-color;
+  @include flex(flex, column, center, center);
+
+  .section6-descr {
+    @include flex(flex, column, center, center);
+
+    h3 {
+      @include text(48px, 800, 64px, $referanslarimiz-text);
+      margin-bottom: 5px;
+    }
+
+    p {
+      @include text(18px, 500, 32px, $referanslarimiz-text);
+      margin-bottom: 48px;
+    }
+
+    .grid-container {
+      max-width: 946px;
+      display: grid;
+      gap: 24px;
+      grid-template-rows: repeat(6, 43px);
+      justify-self: center;
+      align-self: center;
+      align-items: center;
+
+      .grid-container-1 {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-column: 1 / 2;
+        grid-row: 3 / 5;
+
+        .grid-elem {
+          background-color: #fff;
+          border-radius: 16px;
+          width: 170px;
+          height: 96px;
+          padding: 15px 18px 14px 18px;
+        }
+      }
+
+      .grid-container-2 {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;
+
+        .grid-elem {
+          background-color: #fff;
+          border-radius: 16px;
+          width: 170px;
+          height: 96px;
+          padding: 18px 24px 17px 24px;
+        }
+      }
+
+      .grid-container-3 {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-column: 2 / 3;
+        grid-row: 4 / 6;
+
+        .grid-elem {
+          background-color: #fff;
+          border-radius: 16px;
+          width: 170px;
+          height: 96px;
+          padding: 30px 23px 29px 24px;
+        }
+      }
+
+      .grid-container-4 {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-column: 3 / 4;
+        grid-row: 1 / 3;
+
+        .grid-elem {
+          background-color: #fff;
+          border-radius: 16px;
+          width: 170px;
+          height: 96px;
+          padding: 15px 19px 15px 19px;
+        }
+      }
+
+      .grid-container-5 {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-column: 3 / 4;
+        grid-row: 3 / 5;
+
+        .grid-elem {
+          background-color: #fff;
+          border-radius: 16px;
+          width: 170px;
+          height: 96px;
+          padding: 15px 19px 15px 19px;
+        }
+      }
+
+      .grid-container-6 {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-column: 3 / 4;
+        grid-row: 5 / 7;
+
+        .grid-elem {
+          background-color: #fff;
+          border-radius: 16px;
+          width: 170px;
+          height: 96px;
+          padding: 22px 1.5px 22px 1.5px;
+        }
+      }
+
+      .grid-container-7 {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-column: 4 / 5;
+        grid-row: 2 / 4;
+
+        .grid-elem {
+          background-color: #fff;
+          border-radius: 16px;
+          width: 170px;
+          height: 96px;
+          padding: 19px 26px 18px 26px;
+        }
+      }
+
+      .grid-container-8 {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-column: 4 / 5;
+        grid-row: 4 / 6;
+
+        .grid-elem {
+          background-color: #fff;
+          border-radius: 16px;
+          width: 170px;
+          height: 96px;
+          padding: 31px 36px 31px 36px;
+        }
+      }
+
+      .grid-container-9 {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-column: 5 / 6;
+        grid-row: 3 / 5;
+
+        .grid-elem {
+          background-color: #fff;
+          border-radius: 16px;
+          width: 170px;
+          height: 96px;
+          padding: 32px 33px 32px 34px;
+        }
+      }
+    }
+  }
+}
+
+.section7-bizeulasin {
+  padding: 160px 0;
+
+  .section7-flex {
+    @include flex(flex, column, center, center);
+    .section7-flex-item {
+      @include flex(flex, column, center, center);
+
+      h3 {
+        @include text(48px, 800, 32px, $main-text-black);
+        margin-bottom: 20px;
+      }
+
+      p {
+        @include text(18px, 500, 32px, $main-text-black);
+        margin-bottom: 30px;
+      }
+
+      button {
+        @include text(24px, 600, 20px, $main-text-white);
+        background-color: $back-color-red;
+        padding: 25px 40px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $footer-back-color;
+  padding: 70px 0 60px;
+
+  .container {
+    .footer1-flex {
+      @include flex(flex, row, space-between, none);
+      align-content: flex-start;
+
+      .footer1-flex-item {
+        @include flex(flex, column, none, none);
+
+        h2 {
+          @include text(16px, 700, 24px, $main-text-white);
+          margin-bottom: 24px;
+          cursor: pointer;
+        }
+
+        p {
+          @include text(16px, 400, 32px, $footer-p-color);
+          margin-bottom: 24px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .footer2-flex {
+      @include flex(flex, row, space-between, none);
+      align-content: flex-start;
+      padding-top: 26px; /* Отступ между футер флексами 50пиксель, у верхнего П есть марджин ботом 24пх */
+
+      .footer2-flex-item {
+        @include flex(flex, column, none, none);
+
+        p {
+          @include text(16px, 400, 32px, $main-text-white);
+          /* margin-bottom: 24px; */
+        }
+      }
+
+      .footer2-flex-item-img {
+        @include flex(flex, row, space-between, center);
+        max-width: 224px;
+        cursor: pointer;
+
+        img {
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .section2-kalite {
+    .section2-descr {
+      .section2-flex {
+        justify-content: space-around;
+        .section2-flex-item {
+        }
+      }
+    }
+  }
+
+  .section3-red {
+    .section3-descr {
+      .section3-flex {
+        justify-content: space-around;
+        gap: 10px;
+        .section3-flex-item {
+        }
+      }
+    }
+  }
+
+  .section4-kalite2 {
+    padding: 160px 0 120px;
+
+    .section4-flex {
+      @include flex(flex, row, space-between, center);
+
+      .section4-flex-item {
+        h2 {
+          @include text(54px, 700, 60px, $kalite-text-color);
+          max-width: 428px;
+          margin-bottom: 40px;
+        }
+
+        p {
+          @include text(14px, 400, 28px, $kalite-text-p);
+          max-width: 428px;
+          margin-bottom: 80px;
+        }
+
+        button {
+          @include text(14px, 600, 24px, $main-text-white);
+          background-color: $back-color-red;
+          padding: 12px 58px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+
+        img {
+          max-width: 95%;
+        }
+      }
+    }
+  }
+
+  .section5-test {
+    padding: 0 0 120px;
+
+    .section5-flex {
+      @include flex(flex, row, space-between, center);
+
+      .section5-flex-item {
+        h2 {
+          @include text(54px, 700, 60px, $kalite-text-color);
+          max-width: 428px;
+          margin-bottom: 40px;
+        }
+
+        p {
+          @include text(14px, 400, 28px, $kalite-text-p);
+          max-width: 428px;
+          margin-bottom: 80px;
+        }
+
+        button {
+          @include text(14px, 600, 24px, $main-text-white);
+          background-color: $back-color-red;
+          padding: 12px 58px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+
+        img {
+          max-width: 95%;
+        }
+      }
+    }
+  }
+
+  .section6-referenslarimiz {
+    padding: 59px 0;
+    background-color: $referanslarimiz-back-color;
+    @include flex(flex, column, center, center);
+
+    .section6-descr {
+      @include flex(flex, column, center, center);
+
+      h3 {
+        @include text(48px, 800, 64px, $referanslarimiz-text);
+        margin-bottom: 5px;
+      }
+
+      p {
+        @include text(18px, 500, 32px, $referanslarimiz-text);
+        margin-bottom: 48px;
+      }
+
+      .grid-container {
+        max-width: 946px;
+        display: grid;
+        gap: 10px;
+        grid-template-rows: repeat(6, 43px);
+        justify-self: center;
+        align-self: center;
+        align-items: center;
+
+        .grid-container-1 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 1 / 2;
+          grid-row: 3 / 5;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 15px 18px 14px 18px;
+          }
+        }
+
+        .grid-container-2 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 2 / 3;
+          grid-row: 2 / 4;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 18px 24px 17px 24px;
+          }
+        }
+
+        .grid-container-3 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 2 / 3;
+          grid-row: 4 / 6;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 30px 23px 29px 24px;
+          }
+        }
+
+        .grid-container-4 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 3 / 4;
+          grid-row: 1 / 3;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 15px 19px 15px 19px;
+          }
+        }
+
+        .grid-container-5 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 3 / 4;
+          grid-row: 3 / 5;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 15px 19px 15px 19px;
+          }
+        }
+
+        .grid-container-6 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 3 / 4;
+          grid-row: 5 / 7;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 22px 1.5px 22px 1.5px;
+          }
+        }
+
+        .grid-container-7 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 4 / 5;
+          grid-row: 2 / 4;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 19px 26px 18px 26px;
+          }
+        }
+
+        .grid-container-8 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 4 / 5;
+          grid-row: 4 / 6;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 31px 36px 31px 36px;
+          }
+        }
+
+        .grid-container-9 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 5 / 6;
+          grid-row: 3 / 5;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 32px 33px 32px 34px;
+          }
+        }
+      }
+    }
+  }
+
+  .section7-bizeulasin {
+    padding: 160px 0;
+
+    .section7-flex {
+      @include flex(flex, column, center, center);
+      .section7-flex-item {
+        @include flex(flex, column, center, center);
+
+        h3 {
+          @include text(48px, 800, 32px, $main-text-black);
+          margin-bottom: 20px;
+        }
+
+        p {
+          @include text(18px, 500, 32px, $main-text-black);
+          margin-bottom: 30px;
+        }
+
+        button {
+          @include text(24px, 600, 20px, $main-text-white);
+          background-color: $back-color-red;
+          padding: 25px 40px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: $footer-back-color;
+    padding: 70px 0 60px;
+
+    .container {
+      .footer1-flex {
+        @include flex(flex, row, space-between, none);
+        align-content: flex-start;
+
+        .footer1-flex-item {
+          @include flex(flex, column, none, none);
+
+          h2 {
+            @include text(16px, 700, 24px, $main-text-white);
+            margin-bottom: 24px;
+            cursor: pointer;
+          }
+
+          p {
+            @include text(16px, 400, 32px, $footer-p-color);
+            margin-bottom: 24px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .footer2-flex {
+        @include flex(flex, row, space-between, none);
+        align-content: flex-start;
+        padding-top: 26px; /* Отступ между футер флексами 50пиксель, у верхнего П есть марджин ботом 24пх */
+
+        .footer2-flex-item {
+          @include flex(flex, column, none, none);
+
+          p {
+            @include text(16px, 400, 32px, $main-text-white);
+            /* margin-bottom: 24px; */
+          }
+        }
+
+        .footer2-flex-item-img {
+          @include flex(flex, row, space-between, center);
+          max-width: 224px;
+          cursor: pointer;
+
+          img {
+            margin-right: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  header {
+    width: 100%;
+    /* right: 0; */
+  }
+
+  .header-flex {
+    padding: 45px 0;
+    position: absolute;
+    width: 100%;
+    margin-left: 0;
+    /* display: flex;
+    justify-content: space-between; */
+
+    .header-flex-item {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      width: 100%;
+
+      .burger-menu {
+        display: flex;
+
+        img {
+          width: 50px;
+          display: block;
+        }
+      }
+
+      nav {
+        display: none;
+      }
+
+      button {
+        background-color: $back-color-red;
+        @include text(14px, 700, 20px, $main-text-white);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .section1-bg-image {
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 250, 240, 0.5411414565826331) 100%
+      ),
+      url(/images/01-bg-image.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    width: 100%;
+    max-height: 754px;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    padding-top: 210px 0 148px 0;
+
+    .section1-descr {
+      @include flex(flex, row, flex-start, center);
+
+      .section1-descr-container {
+        max-width: 665px;
+        @include flex(flex, column, flex-start, center);
+        display: flex;
+        justify-content: flex-start;
+
+        h1 {
+          @include text(42px, 800, 57px, $main-text-black);
+          margin-bottom: 20px;
+          max-width: 580px;
+          text-align: center;
+        }
+
+        p {
+          @include text(12px, 400, 23px, $main-text-black);
+          letter-spacing: 0.2px;
+          margin-bottom: 50px;
+          max-width: 580px;
+          text-align: center;
+        }
+
+        form {
+          /* margin-right: 21%; */
+          div {
+            background-color: $main-text-white;
+            padding: 2px 2px 2px 10px;
+            border-radius: 5px;
+
+            input {
+              @include text(14px, 400, 36px, $input-text-color);
+              border: none;
+              margin-right: 10px;
+              outline: none;
+            }
+            button {
+              padding: 8px 12px;
+              border-radius: 8px;
+              border: none;
+              background-color: $back-color-red;
+              @include text(14px, 700, 19px, $main-text-white);
+              letter-spacing: 0.2px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .section2-kalite {
+    .section2-descr {
+      .section2-flex {
+        justify-content: space-around;
+        .section2-flex-item {
+        }
+      }
+    }
+  }
+
+  .section3-red {
+    .section3-descr {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .section3-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 40px;
+
+        .section3-flex-item {
+        }
+      }
+    }
+  }
+
+  .section4-kalite2 {
+    padding: 160px 0 120px;
+
+    .section4-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex-direction: column-reverse;
+
+      .section4-flex-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2 {
+          @include text(54px, 700, 60px, $kalite-text-color);
+          max-width: 428px;
+          margin-bottom: 40px;
+          text-align: center;
+        }
+
+        p {
+          @include text(14px, 400, 28px, $kalite-text-p);
+          max-width: 428px;
+          margin-bottom: 80px;
+          text-align: center;
+        }
+
+        button {
+          @include text(14px, 600, 24px, $main-text-white);
+          background-color: $back-color-red;
+          padding: 12px 58px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+
+        img {
+          width: 100%;
+          margin: 0 auto 30px;
+          /* margin-bottom: 30px; */
+          display: block;
+        }
+      }
+    }
+  }
+
+  .section5-test {
+    padding: 0 0 120px;
+
+    .section5-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .section5-flex-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2 {
+          @include text(54px, 700, 60px, $kalite-text-color);
+          max-width: 428px;
+          margin-bottom: 40px;
+          text-align: center;
+        }
+
+        p {
+          @include text(14px, 400, 28px, $kalite-text-p);
+          max-width: 428px;
+          margin-bottom: 80px;
+          text-align: center;
+        }
+
+        button {
+          @include text(14px, 600, 24px, $main-text-white);
+          background-color: $back-color-red;
+          padding: 12px 58px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+
+        img {
+          width: 100%;
+          margin: 0 auto 30px;
+          /* margin-bottom: 30px; */
+          display: block;
+        }
+      }
+    }
+  }
+
+  .section6-referenslarimiz {
+    padding: 59px 0;
+    background-color: $referanslarimiz-back-color;
+    @include flex(flex, column, center, center);
+
+    .section6-descr {
+      @include flex(flex, column, center, center);
+
+      h3 {
+        @include text(36px, 700, 41.5px, $referanslarimiz-text);
+        margin-bottom: 5px;
+        text-align: center;
+      }
+
+      p {
+        @include text(14px, 500, 32px, $referanslarimiz-text);
+        margin-bottom: 48px;
+        text-align: center;
+      }
+
+      .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 24px;
+        grid-template-rows: repeat(6, 43px);
+        /* justify-self: center;
+        align-self: center;
+        align-items: center; */
+        justify-content: center;
+
+        .grid-container-1 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 1 / 2;
+          grid-row: 3 / 5;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 15px 18px 14px 18px;
+          }
+        }
+
+        .grid-container-2 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 2 / 3;
+          grid-row: 2 / 4;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 18px 24px 17px 24px;
+          }
+        }
+
+        .grid-container-3 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 2 / 3;
+          grid-row: 4 / 6;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 30px 23px 29px 24px;
+          }
+        }
+
+        .grid-container-4 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 3 / 4;
+          grid-row: 1 / 3;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 15px 19px 15px 19px;
+          }
+        }
+
+        .grid-container-5 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 3 / 4;
+          grid-row: 3 / 5;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 15px 19px 15px 19px;
+          }
+        }
+
+        .grid-container-6 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 3 / 4;
+          grid-row: 5 / 7;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 22px 1.5px 22px 1.5px;
+          }
+        }
+
+        .grid-container-7 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 4 / 5;
+          grid-row: 2 / 4;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 19px 26px 18px 26px;
+          }
+        }
+
+        .grid-container-8 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 4 / 5;
+          grid-row: 4 / 6;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 31px 36px 31px 36px;
+          }
+        }
+
+        .grid-container-9 {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-column: 5 / 6;
+          grid-row: 3 / 5;
+
+          .grid-elem {
+            background-color: #fff;
+            border-radius: 16px;
+            width: 170px;
+            height: 96px;
+            padding: 32px 33px 32px 34px;
+          }
+        }
+      }
+    }
+  }
+
+  .section7-bizeulasin {
+    padding: 160px 0;
+
+    .section7-flex {
+      @include flex(flex, column, center, center);
+      .section7-flex-item {
+        @include flex(flex, column, center, center);
+
+        h3 {
+          @include text(36px, 800, 32px, $main-text-black);
+          margin-bottom: 20px;
+          text-align: center;
+        }
+
+        p {
+          @include text(14px, 500, 25px, $main-text-black);
+          margin-bottom: 30px;
+          text-align: center;
+        }
+
+        button {
+          @include text(24px, 600, 20px, $main-text-white);
+          background-color: $back-color-red;
+          padding: 25px 40px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: $footer-back-color;
+    padding: 70px 0 60px;
+
+    .container {
+      width: 85%;
+      .footer1-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 35px;
+
+        .footer1-flex-item {
+          @include flex(flex, column, none, none);
+          gap: 10px;
+
+          h2 {
+            @include text(16px, 700, 24px, $main-text-white);
+            margin-bottom: 24px;
+            cursor: pointer;
+          }
+
+          p {
+            @include text(16px, 400, 32px, $footer-p-color);
+            margin-bottom: 24px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .footer2-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        flex-direction: column-reverse;
+        padding-top: 26px; /* Отступ между футер флексами 50пиксель, у верхнего П есть марджин ботом 24пх */
+
+        .footer2-flex-item {
+          @include flex(flex, column, none, none);
+          gap: 10px;
+
+          p {
+            @include text(16px, 400, 32px, $main-text-white);
+            /* margin-bottom: 24px; */
+          }
+        }
+
+        .footer2-flex-item-img {
+          @include flex(flex, row, space-between, center);
+          max-width: 224px;
+          cursor: pointer;
+
+          img {
+            margin-right: 16px;
+            margin-bottom: 62px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 376px) {
+  .container {
+    width: 90%;
+  }
+
+  .section1-bg-image {
+    /* background: rgb(255, 255, 255); */
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 250, 240, 0.5411414565826331) 100%
+      ),
+      url(/images/01-bg-image.png);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    width: 100%;
+    max-height: 754px;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    padding-top: 210px 0 148px 0;
+
+    .section1-descr {
+      @include flex(flex, row, flex-start, center);
+
+      .section1-descr-container {
+        max-width: 665px;
+        @include flex(flex, column, flex-start, center);
+        display: flex;
+        justify-content: flex-start;
+
+        h1 {
+          @include text(42px, 800, 57px, $main-text-black);
+          margin-bottom: 20px;
+          max-width: 580px;
+          text-align: center;
+        }
+
+        p {
+          @include text(12px, 400, 23px, $main-text-black);
+          letter-spacing: 0.2px;
+          margin-bottom: 50px;
+          max-width: 580px;
+          text-align: center;
+        }
+
+        form {
+          /* margin-right: 21%; */
+          margin-right: 0;
+          width: 100%;
+          div {
+            background-color: $main-text-white;
+            padding: 5px 5px 5px 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+
+            input {
+              @include text(14px, 400, 36px, $input-text-color);
+              border: none;
+              margin-right: 0;
+              outline: none;
+              padding-left: 21px;
+              /* width: 70%; */
+            }
+            button {
+              padding: 16px 18px 15px;
+              border-radius: 8px;
+              border: none;
+              background-color: $back-color-red;
+              @include text(14px, 700, 19px, $main-text-white);
+              letter-spacing: 0.2px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
